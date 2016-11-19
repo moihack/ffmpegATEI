@@ -15,6 +15,7 @@ namespace ffmpegATEI
         public ffmpegTEI()
         {
             InitializeComponent();
+           
         }
 
         private void ffmpegTEI_Load(object sender, EventArgs e)
@@ -30,6 +31,21 @@ namespace ffmpegATEI
         private void presetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.InitialDirectory = "C:\\Users\\user1\\Desktop";
+            openFileDialog1.Multiselect = true;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                string[] result = openFileDialog1.FileNames;
+                foreach (string r in result)
+                {
+                    pathListBox.Items.Add(r);
+                }
+           }
         }
     }
 }

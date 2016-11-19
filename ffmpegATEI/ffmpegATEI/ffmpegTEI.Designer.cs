@@ -47,6 +47,8 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pathListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -149,6 +151,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "open";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // cmdTextBox
             // 
@@ -188,7 +191,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(12, 159);
+            this.comboBox2.Location = new System.Drawing.Point(13, 159);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(65, 21);
             this.comboBox2.TabIndex = 17;
@@ -217,11 +220,24 @@
             this.comboBox5.Size = new System.Drawing.Size(84, 21);
             this.comboBox5.TabIndex = 20;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // pathListBox
+            // 
+            this.pathListBox.FormattingEnabled = true;
+            this.pathListBox.Location = new System.Drawing.Point(13, 39);
+            this.pathListBox.Name = "pathListBox";
+            this.pathListBox.Size = new System.Drawing.Size(189, 95);
+            this.pathListBox.TabIndex = 21;
+            // 
             // ffmpegTEI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 322);
+            this.Controls.Add(this.pathListBox);
             this.Controls.Add(this.comboBox5);
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.comboBox3);
@@ -271,6 +287,8 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ListBox pathListBox;
     }
 }
 
