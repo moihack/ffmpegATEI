@@ -34,18 +34,36 @@ namespace ffmpegATEI
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.InitialDirectory = "C:\\Users\\user1\\Desktop";
-            openFileDialog1.Multiselect = true;
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+        {   
+            chooseFileDialog.InitialDirectory = "C:\\Users\\user1\\Desktop";
+            chooseFileDialog.Multiselect = true;
+            if (chooseFileDialog.ShowDialog() == DialogResult.OK)
             {
 
-                string[] result = openFileDialog1.FileNames;
+                string[] result = chooseFileDialog.FileNames;
                 foreach (string r in result)
                 {
                     pathListBox.Items.Add(r);
                 }
            }
+        }
+
+        private void choosePathButton_Click(object sender, EventArgs e)
+        {   
+            if (choosePathDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                sevePathTextbox.Text = choosePathDialog.SelectedPath.ToString();
+            }
+        }
+
+        private void sevePathTextbox_DoubleClick(object sender, EventArgs e)
+        {
+            if (choosePathDialog.ShowDialog() == DialogResult.OK)
+            {
+
+                sevePathTextbox.Text = choosePathDialog.SelectedPath.ToString();
+            }
         }
     }
 }

@@ -47,8 +47,12 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.chooseFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.pathListBox = new System.Windows.Forms.ListBox();
+            this.choosePathDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.choosePathButton = new System.Windows.Forms.Button();
+            this.messageChooseLabel = new System.Windows.Forms.Label();
+            this.sevePathTextbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -220,9 +224,9 @@
             this.comboBox5.Size = new System.Drawing.Size(84, 21);
             this.comboBox5.TabIndex = 20;
             // 
-            // openFileDialog1
+            // chooseFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.chooseFileDialog.FileName = "chooseFileDialog";
             // 
             // pathListBox
             // 
@@ -232,11 +236,42 @@
             this.pathListBox.Size = new System.Drawing.Size(189, 95);
             this.pathListBox.TabIndex = 21;
             // 
+            // choosePathButton
+            // 
+            this.choosePathButton.Location = new System.Drawing.Point(617, 46);
+            this.choosePathButton.Name = "choosePathButton";
+            this.choosePathButton.Size = new System.Drawing.Size(75, 23);
+            this.choosePathButton.TabIndex = 23;
+            this.choosePathButton.Text = "Choose";
+            this.choosePathButton.UseVisualStyleBackColor = true;
+            this.choosePathButton.Click += new System.EventHandler(this.choosePathButton_Click);
+            // 
+            // messageChooseLabel
+            // 
+            this.messageChooseLabel.AutoSize = true;
+            this.messageChooseLabel.Location = new System.Drawing.Point(323, 46);
+            this.messageChooseLabel.Name = "messageChooseLabel";
+            this.messageChooseLabel.Size = new System.Drawing.Size(288, 13);
+            this.messageChooseLabel.TabIndex = 24;
+            this.messageChooseLabel.Text = "Please choose the path you want to save the converted file";
+            // 
+            // sevePathTextbox
+            // 
+            this.sevePathTextbox.Location = new System.Drawing.Point(326, 75);
+            this.sevePathTextbox.Name = "sevePathTextbox";
+            this.sevePathTextbox.ReadOnly = true;
+            this.sevePathTextbox.Size = new System.Drawing.Size(285, 20);
+            this.sevePathTextbox.TabIndex = 25;
+            this.sevePathTextbox.DoubleClick += new System.EventHandler(this.sevePathTextbox_DoubleClick);
+            // 
             // ffmpegTEI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 322);
+            this.Controls.Add(this.sevePathTextbox);
+            this.Controls.Add(this.messageChooseLabel);
+            this.Controls.Add(this.choosePathButton);
             this.Controls.Add(this.pathListBox);
             this.Controls.Add(this.comboBox5);
             this.Controls.Add(this.comboBox4);
@@ -287,8 +322,12 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox5;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog chooseFileDialog;
         private System.Windows.Forms.ListBox pathListBox;
+        private System.Windows.Forms.FolderBrowserDialog choosePathDialog;
+        private System.Windows.Forms.Button choosePathButton;
+        private System.Windows.Forms.Label messageChooseLabel;
+        private System.Windows.Forms.TextBox sevePathTextbox;
     }
 }
 
