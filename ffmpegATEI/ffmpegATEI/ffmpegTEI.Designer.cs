@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,15 +51,9 @@
             this.choosePathDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.choosePathButton = new System.Windows.Forms.Button();
             this.sevePathTextbox = new System.Windows.Forms.TextBox();
+            this.progressLabel = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(14, 266);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(591, 23);
-            this.progressBar1.TabIndex = 0;
-            this.progressBar1.Visible = false;
             // 
             // label1
             // 
@@ -115,6 +108,7 @@
             this.convertButton.TabIndex = 6;
             this.convertButton.Text = "Convert";
             this.convertButton.UseVisualStyleBackColor = true;
+            this.convertButton.Click += new System.EventHandler(this.convertButton_Click);
             // 
             // presetsLabel
             // 
@@ -131,9 +125,7 @@
             this.presetsComboBox.Items.AddRange(new object[] {
             "Audio Only",
             "Video Only",
-            "PSP",
-            "presetX",
-            "presetY"});
+            "Custom"});
             this.presetsComboBox.Location = new System.Drawing.Point(616, 190);
             this.presetsComboBox.Name = "presetsComboBox";
             this.presetsComboBox.Size = new System.Drawing.Size(75, 21);
@@ -255,11 +247,28 @@
             this.sevePathTextbox.TabIndex = 25;
             this.sevePathTextbox.DoubleClick += new System.EventHandler(this.sevePathTextbox_DoubleClick);
             // 
+            // progressLabel
+            // 
+            this.progressLabel.AutoSize = true;
+            this.progressLabel.Location = new System.Drawing.Point(182, 272);
+            this.progressLabel.Name = "progressLabel";
+            this.progressLabel.Size = new System.Drawing.Size(275, 13);
+            this.progressLabel.TabIndex = 26;
+            this.progressLabel.Text = "Select input file,output directory,preset and press convert";
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // ffmpegTEI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 297);
+            this.Controls.Add(this.progressLabel);
             this.Controls.Add(this.sevePathTextbox);
             this.Controls.Add(this.choosePathButton);
             this.Controls.Add(this.pathListBox);
@@ -281,7 +290,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ffmpegTEI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -293,8 +301,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -318,6 +324,8 @@
         private System.Windows.Forms.FolderBrowserDialog choosePathDialog;
         private System.Windows.Forms.Button choosePathButton;
         private System.Windows.Forms.TextBox sevePathTextbox;
+        private System.Windows.Forms.Label progressLabel;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 
