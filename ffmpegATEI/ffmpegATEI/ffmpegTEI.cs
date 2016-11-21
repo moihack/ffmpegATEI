@@ -34,8 +34,10 @@ namespace ffmpegATEI
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {   
-            chooseFileDialog.InitialDirectory = "C:\\Users\\user1\\Desktop";
+        {
+            //Start on Desktop
+            chooseFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            
             chooseFileDialog.Multiselect = true;
             if (chooseFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -50,6 +52,8 @@ namespace ffmpegATEI
 
         private void choosePathButton_Click(object sender, EventArgs e)
         {   
+            //Start on Desktop
+            choosePathDialog.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             if (choosePathDialog.ShowDialog() == DialogResult.OK)
             {
 
