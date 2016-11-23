@@ -19,6 +19,7 @@ namespace ffmpegATEI
                     break;
 
                 case "Video Only":
+                    VideoOnly(inputFile, outputDirectory);
                     break;
 
                 default:
@@ -32,6 +33,13 @@ namespace ffmpegATEI
         {       
             //enclose path names with " " so ffmpeg can handle spaces correctly
             String parameters = "-y -i " + '"' + inputFile + '"' + " " + '"' + outputDirectory + "\\test.mp3" + '"';
+            doConvert(parameters);
+        }
+
+        private static void VideoOnly(String inputFile, String outputDirectory)
+        {
+            //enclose path names with " " so ffmpeg can handle spaces correctly
+            String parameters = "-i " + '"' + inputFile + '"' + " -c copy -an "+" "+'"'+outputDirectory+"\\test.mp4"+'"';
             doConvert(parameters);
         }
 
