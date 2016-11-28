@@ -1,0 +1,9 @@
+C:\Users\user1\ffmpegATEI\ffmpegATEI\UniTestFFmpeg\obj\Debug\UniTestFFmpeg.csprojResolveAssemblyReference.cache
+C:\Users\user1\ffmpegATEI\ffmpegATEI\UniTestFFmpeg\bin\Debug\UniTestFFmpeg.dll
+C:\Users\user1\ffmpegATEI\ffmpegATEI\UniTestFFmpeg\bin\Debug\UniTestFFmpeg.pdb
+C:\Users\user1\ffmpegATEI\ffmpegATEI\UniTestFFmpeg\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\user1\ffmpegATEI\ffmpegATEI\UniTestFFmpeg\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\user1\ffmpegATEI\ffmpegATEI\UniTestFFmpeg\obj\Debug\UniTestFFmpeg.dll
+C:\Users\user1\ffmpegATEI\ffmpegATEI\UniTestFFmpeg\obj\Debug\UniTestFFmpeg.pdb
+C:\Users\user1\ffmpegATEI\ffmpegATEI\UniTestFFmpeg\bin\Debug\ffmpegATEI.exe
+C:\Users\user1\ffmpegATEI\ffmpegATEI\UniTestFFmpeg\bin\Debug\ffmpegATEI.pdb

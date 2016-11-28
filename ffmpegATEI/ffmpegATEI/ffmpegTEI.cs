@@ -146,6 +146,8 @@ namespace ffmpegATEI
         {
             progressLabel.Text = "Finished! You can now close this window!";
         }
+
+       
     }
 }
 

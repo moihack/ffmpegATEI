@@ -1,0 +1,9 @@
+C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\bin\Debug\ffmpegATEI.exe.config
+C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\bin\Debug\ffmpegATEI.exe
+C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\bin\Debug\ffmpegATEI.pdb
+C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\obj\Debug\ffmpegATEI.csprojResolveAssemblyReference.cache
+C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\obj\Debug\ffmpegATEI.ffmpegTEI.resources
+C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\obj\Debug\ffmpegATEI.Properties.Resources.resources
+C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\obj\Debug\ffmpegATEI.csproj.GenerateResource.Cache
+C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\obj\Debug\ffmpegATEI.exe
+C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\obj\Debug\ffmpegATEI.pdb

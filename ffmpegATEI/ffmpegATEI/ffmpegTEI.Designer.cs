@@ -53,6 +53,7 @@
             this.sevePathTextbox = new System.Windows.Forms.TextBox();
             this.progressLabel = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.workerTests = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // label1
@@ -326,6 +327,7 @@
         private System.Windows.Forms.TextBox sevePathTextbox;
         private System.Windows.Forms.Label progressLabel;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        public System.ComponentModel.BackgroundWorker workerTests;
     }
 }
 

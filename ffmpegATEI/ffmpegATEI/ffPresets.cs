@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ffmpegATEI
 {
-    class ffPresets
+    public class ffPresets
     {
         public static void detectPreset(String inputFile, String outputDirectory,String preset)
         {
@@ -21,7 +21,6 @@ namespace ffmpegATEI
                 case "Video Only":
                     VideoOnly(inputFile, outputDirectory);
                     break;
-
                 default:
                     MessageBox.Show("Incorrect preset selected!");
                     break;
@@ -29,8 +28,14 @@ namespace ffmpegATEI
 
         }
 
+        private void test()
+        {
+
+        }
+
         private static void AudioOnly(String inputFile,String outputDirectory)
-        {       
+        {
+            //MessageBox.Show(inputFile+  "   "+outputDirectory);
             //enclose path names with " " so ffmpeg can handle spaces correctly
             String parameters = "-y -i " + '"' + inputFile + '"' + " " + '"' + outputDirectory + "\\test.mp3" + '"';
             doConvert(parameters);
@@ -54,13 +59,14 @@ namespace ffmpegATEI
             {
                 myProcess.StartInfo.UseShellExecute = false;
                 myProcess.StartInfo.FileName = Application.StartupPath + "\\bin\\ffmpeg.exe";
+                //MessageBox.Show(cmd);
                 //MessageBox.Show(myProcess.StartInfo.FileName);
                 //myProcess.StartInfo.CreateNoWindow = false;
                 myProcess.StartInfo.Arguments = cmd;
                 myProcess.StartInfo.CreateNoWindow = true;
                 myProcess.StartInfo.RedirectStandardError = true;
                 myProcess.Start();
-
+                
                 //DO NOT remove the output error, otherwise ffmpeg likes to 'sleep' in the background and never comes back!
                 while (!myProcess.StandardError.EndOfStream)
                 {
@@ -70,6 +76,7 @@ namespace ffmpegATEI
 
                 //background thread needs to wait for ffmpeg to complete before updating UI elements!
                 myProcess.WaitForExit();
+                
 
             }
             catch (Exception e)
