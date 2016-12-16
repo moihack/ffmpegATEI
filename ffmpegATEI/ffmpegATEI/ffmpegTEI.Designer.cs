@@ -222,6 +222,7 @@
             this.pathListBox.Name = "pathListBox";
             this.pathListBox.Size = new System.Drawing.Size(590, 43);
             this.pathListBox.TabIndex = 21;
+            this.pathListBox.SelectedIndexChanged += new System.EventHandler(this.pathListBox_SelectedIndexChanged);
             // 
             // choosePathButton
             // 

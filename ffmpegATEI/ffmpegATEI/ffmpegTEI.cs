@@ -39,7 +39,6 @@ namespace ffmpegATEI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string path=null;
             //Start on Desktop
             chooseFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
 
@@ -51,13 +50,11 @@ namespace ffmpegATEI
                 foreach (string r in result)
                 {
                     pathListBox.Items.Add(r);
-                    path = r;
+                    pathListBox.SelectedIndex = pathListBox.SelectedIndex + 1;
                 }
             }
 
-            //MessageBox.Show(path);
-            //fileInfoTxtBox.Text = "test";
-            fileInfoTxtBox.Text = fileInfo.mediaInfo(path);
+            pathListBox.SelectedIndex = 0;
 
         }
 
@@ -154,7 +151,14 @@ namespace ffmpegATEI
             progressLabel.Text = "Finished! You can now close this window!";
         }
 
-       
+        private void pathListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show(pathListBox.SelectedItem.ToString());
+            fileInfoTxtBox.Text = "";
+            fileInfoTxtBox.Text = fileInfo.mediaInfo(pathListBox.SelectedItem.ToString());
+            //MessageBox.Show(pathListBox.SelectedItem.ToString());
+            //fileInfoTxtBox.Text = "";
+        }
     }
 }
 

@@ -10,10 +10,10 @@ namespace ffmpegATEI
 {
     class fileInfo
     {
-        static String info = null;
-
         public static String mediaInfo(String path)
         {
+
+            String info = null;
 
             Boolean hasAudio = false;
             Boolean hasVideo = false;
