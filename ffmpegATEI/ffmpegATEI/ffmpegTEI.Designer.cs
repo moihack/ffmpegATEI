@@ -36,7 +36,6 @@
             this.convertButton = new System.Windows.Forms.Button();
             this.presetsLabel = new System.Windows.Forms.Label();
             this.presetsComboBox = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.openFilesBtn = new System.Windows.Forms.Button();
             this.cmdTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,12 +53,14 @@
             this.progressLabel = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.workerTests = new System.ComponentModel.BackgroundWorker();
+            this.fileInfoTxtBox = new System.Windows.Forms.RichTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 174);
+            this.label1.Location = new System.Drawing.Point(12, 191);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 1;
@@ -68,7 +69,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(80, 174);
+            this.label2.Location = new System.Drawing.Point(80, 191);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 2;
@@ -77,7 +78,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(153, 174);
+            this.label3.Location = new System.Drawing.Point(153, 191);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 13);
             this.label3.TabIndex = 3;
@@ -86,7 +87,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(221, 174);
+            this.label4.Location = new System.Drawing.Point(221, 191);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 4;
@@ -95,7 +96,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(291, 174);
+            this.label5.Location = new System.Drawing.Point(291, 191);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 5;
@@ -103,7 +104,7 @@
             // 
             // convertButton
             // 
-            this.convertButton.Location = new System.Drawing.Point(618, 266);
+            this.convertButton.Location = new System.Drawing.Point(618, 272);
             this.convertButton.Name = "convertButton";
             this.convertButton.Size = new System.Drawing.Size(75, 23);
             this.convertButton.TabIndex = 6;
@@ -114,7 +115,7 @@
             // presetsLabel
             // 
             this.presetsLabel.AutoSize = true;
-            this.presetsLabel.Location = new System.Drawing.Point(631, 174);
+            this.presetsLabel.Location = new System.Drawing.Point(631, 191);
             this.presetsLabel.Name = "presetsLabel";
             this.presetsLabel.Size = new System.Drawing.Size(42, 13);
             this.presetsLabel.TabIndex = 7;
@@ -127,18 +128,11 @@
             "Audio Only",
             "Video Only",
             "Custom"});
-            this.presetsComboBox.Location = new System.Drawing.Point(616, 190);
+            this.presetsComboBox.Location = new System.Drawing.Point(616, 207);
             this.presetsComboBox.Name = "presetsComboBox";
             this.presetsComboBox.Size = new System.Drawing.Size(75, 21);
             this.presetsComboBox.TabIndex = 8;
             this.presetsComboBox.SelectedIndexChanged += new System.EventHandler(this.presetsComboBox_SelectedIndexChanged);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(13, 13);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(591, 20);
-            this.textBox3.TabIndex = 11;
             // 
             // openFilesBtn
             // 
@@ -152,7 +146,7 @@
             // 
             // cmdTextBox
             // 
-            this.cmdTextBox.Location = new System.Drawing.Point(13, 241);
+            this.cmdTextBox.Location = new System.Drawing.Point(13, 247);
             this.cmdTextBox.Name = "cmdTextBox";
             this.cmdTextBox.ReadOnly = true;
             this.cmdTextBox.Size = new System.Drawing.Size(591, 20);
@@ -161,7 +155,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 225);
+            this.label6.Location = new System.Drawing.Point(13, 231);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 14;
@@ -169,7 +163,7 @@
             // 
             // editBtn
             // 
-            this.editBtn.Location = new System.Drawing.Point(618, 241);
+            this.editBtn.Location = new System.Drawing.Point(618, 244);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(75, 23);
             this.editBtn.TabIndex = 15;
@@ -180,7 +174,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(153, 190);
+            this.comboBox1.Location = new System.Drawing.Point(153, 207);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(65, 21);
             this.comboBox1.TabIndex = 16;
@@ -188,7 +182,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(13, 190);
+            this.comboBox2.Location = new System.Drawing.Point(13, 207);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(65, 21);
             this.comboBox2.TabIndex = 17;
@@ -196,7 +190,7 @@
             // comboBox3
             // 
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(83, 190);
+            this.comboBox3.Location = new System.Drawing.Point(83, 207);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(64, 21);
             this.comboBox3.TabIndex = 18;
@@ -204,7 +198,7 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(224, 190);
+            this.comboBox4.Location = new System.Drawing.Point(224, 207);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(64, 21);
             this.comboBox4.TabIndex = 19;
@@ -212,7 +206,7 @@
             // comboBox5
             // 
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(294, 190);
+            this.comboBox5.Location = new System.Drawing.Point(294, 207);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(84, 21);
             this.comboBox5.TabIndex = 20;
@@ -224,14 +218,14 @@
             // pathListBox
             // 
             this.pathListBox.FormattingEnabled = true;
-            this.pathListBox.Location = new System.Drawing.Point(12, 65);
+            this.pathListBox.Location = new System.Drawing.Point(12, 10);
             this.pathListBox.Name = "pathListBox";
-            this.pathListBox.Size = new System.Drawing.Size(592, 95);
+            this.pathListBox.Size = new System.Drawing.Size(590, 43);
             this.pathListBox.TabIndex = 21;
             // 
             // choosePathButton
             // 
-            this.choosePathButton.Location = new System.Drawing.Point(617, 37);
+            this.choosePathButton.Location = new System.Drawing.Point(617, 56);
             this.choosePathButton.Name = "choosePathButton";
             this.choosePathButton.Size = new System.Drawing.Size(75, 23);
             this.choosePathButton.TabIndex = 23;
@@ -241,7 +235,7 @@
             // 
             // sevePathTextbox
             // 
-            this.sevePathTextbox.Location = new System.Drawing.Point(13, 39);
+            this.sevePathTextbox.Location = new System.Drawing.Point(12, 59);
             this.sevePathTextbox.Name = "sevePathTextbox";
             this.sevePathTextbox.ReadOnly = true;
             this.sevePathTextbox.Size = new System.Drawing.Size(590, 20);
@@ -251,7 +245,7 @@
             // progressLabel
             // 
             this.progressLabel.AutoSize = true;
-            this.progressLabel.Location = new System.Drawing.Point(182, 272);
+            this.progressLabel.Location = new System.Drawing.Point(182, 278);
             this.progressLabel.Name = "progressLabel";
             this.progressLabel.Size = new System.Drawing.Size(275, 13);
             this.progressLabel.TabIndex = 26;
@@ -264,11 +258,30 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
+            // fileInfoTxtBox
+            // 
+            this.fileInfoTxtBox.Location = new System.Drawing.Point(12, 98);
+            this.fileInfoTxtBox.Name = "fileInfoTxtBox";
+            this.fileInfoTxtBox.Size = new System.Drawing.Size(592, 80);
+            this.fileInfoTxtBox.TabIndex = 27;
+            this.fileInfoTxtBox.Text = "";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(272, 82);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 13);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "FileInfo";
+            // 
             // ffmpegTEI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 297);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.fileInfoTxtBox);
             this.Controls.Add(this.progressLabel);
             this.Controls.Add(this.sevePathTextbox);
             this.Controls.Add(this.choosePathButton);
@@ -282,7 +295,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmdTextBox);
             this.Controls.Add(this.openFilesBtn);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.presetsComboBox);
             this.Controls.Add(this.presetsLabel);
             this.Controls.Add(this.convertButton);
@@ -310,7 +322,6 @@
         private System.Windows.Forms.Button convertButton;
         private System.Windows.Forms.Label presetsLabel;
         private System.Windows.Forms.ComboBox presetsComboBox;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button openFilesBtn;
         private System.Windows.Forms.TextBox cmdTextBox;
         private System.Windows.Forms.Label label6;
@@ -328,6 +339,8 @@
         private System.Windows.Forms.Label progressLabel;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         public System.ComponentModel.BackgroundWorker workerTests;
+        private System.Windows.Forms.RichTextBox fileInfoTxtBox;
+        private System.Windows.Forms.Label label7;
     }
 }
 
