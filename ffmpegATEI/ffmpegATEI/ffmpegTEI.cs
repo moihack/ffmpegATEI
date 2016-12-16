@@ -39,6 +39,7 @@ namespace ffmpegATEI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string path=null;
             //Start on Desktop
             chooseFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
 
@@ -50,8 +51,14 @@ namespace ffmpegATEI
                 foreach (string r in result)
                 {
                     pathListBox.Items.Add(r);
+                    path = r;
                 }
             }
+
+            //MessageBox.Show(path);
+            //fileInfoTxtBox.Text = "test";
+            fileInfoTxtBox.Text = fileInfo.mediaInfo(path);
+
         }
 
         private void choosePathButton_Click(object sender, EventArgs e)
@@ -101,7 +108,7 @@ namespace ffmpegATEI
                 outputDir = sevePathTextbox.Text;
                 if (String.IsNullOrEmpty(outputDir))
                 {
-                    MessageBox.Show("You didnt select the path where the converted file will"
+                    MessageBox.Show("You did not select the path where the converted file will"
                                 + "be saved");
                     choosePathDialog.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
                     if (choosePathDialog.ShowDialog() == DialogResult.OK)
