@@ -84,7 +84,12 @@ namespace ffmpegATEI
 
             //System.Windows.Forms.MessageBox.Show(info);
 
-            return info;
+            //int test = mediaFile.Video[0].
+
+            //return test.ToString();
+            //return mediaFile.FrameCount.ToString();
+            return (mediaFile.FrameCount / 1000).ToString();
+            //return info;
         }
        
     }

@@ -13,10 +13,12 @@ namespace ffmpegATEI
 {
     public partial class ffmpegTEI : Form
     {
+        ffPresets ff;
+
         string inputItem = null;
         string outputDir = null;
-        string preset = null;
-
+        string preset = null;        
+        
         public ffmpegTEI()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace ffmpegATEI
 
         private void ffmpegTEI_Load(object sender, EventArgs e)
         {
-
+           ff = new ffPresets(this);
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -34,7 +36,7 @@ namespace ffmpegATEI
 
         private void presetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,7 +56,7 @@ namespace ffmpegATEI
                 }
             }
 
-            pathListBox.SelectedIndex = 0;
+            //pathListBox.SelectedIndex = 0;
 
         }
 
@@ -117,6 +119,7 @@ namespace ffmpegATEI
                 preset = presetsComboBox.SelectedItem.ToString();
                 progressLabel.Text = "ffmpeg running in the background! Do NOT close this window";
                 backgroundWorker1.RunWorkerAsync();
+                //startConvert();
             }
             catch (NullReferenceException exc)
             {//catch the exception
@@ -141,14 +144,25 @@ namespace ffmpegATEI
             }
         }
 
+        private void startConvert()
+        {
+            //ffPresets.detectPreset(inputItem, outputDir, preset,this);
+            //ff.detectPreset(inputItem, outputDir, preset);
+            //ff.detectPreset(inputItem, outputDir, preset);
+        }
+
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            ffPresets.detectPreset(inputItem, outputDir, preset);
+            ff.detectPreset(inputItem, outputDir, preset,this,progressBar1.Maximum );
+            //ff.detectPreset(inputItem, outputDir, preset);
+            //ff.detectPreset(inputItem, outputDir, preset);      
         }
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             progressLabel.Text = "Finished! You can now close this window!";
+            progressBar1.Value = progressBar1.Maximum;
+            //backgroundWorker1.ReportProgress(0,1*10);
         }
 
         private void pathListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,8 +170,32 @@ namespace ffmpegATEI
             //MessageBox.Show(pathListBox.SelectedItem.ToString());
             fileInfoTxtBox.Text = "";
             fileInfoTxtBox.Text = fileInfo.mediaInfo(pathListBox.SelectedItem.ToString());
+            progressBar1.Maximum = Int32.Parse(fileInfoTxtBox.Text) + 1000;
             //MessageBox.Show(pathListBox.SelectedItem.ToString());
             //fileInfoTxtBox.Text = "";
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            //MessageBox.Show("geia");
+            //MessageBox.Show(e.ProgressPercentage.ToString());
+            //Console.WriteLine(e.ProgressPercentage);
+            //Console.WriteLine(e.ProgressPercentage.ToString());
+            progressBar1.Value = e.ProgressPercentage;
+            //progressBar1.Value = progressBar1.Value + 1;
+
+
+        }
+
+        public void updateMyPercentage(string test)
+        {
+            //richTextBox1.Text = test;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+           // backgroundWorker1.ReportProgress();
         }
     }
 }

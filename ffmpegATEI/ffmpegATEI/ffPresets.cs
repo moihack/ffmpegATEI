@@ -10,8 +10,19 @@ namespace ffmpegATEI
 {
     public class ffPresets
     {
-        public static void detectPreset(String inputFile, String outputDirectory,String preset)
+        public ffmpegTEI formRef;
+        public int totalFrameCount ;
+
+        public ffPresets(ffmpegTEI formex)
         {
+            formRef = formex;
+        }
+
+        public void detectPreset(String inputFile, String outputDirectory,String preset, ffmpegTEI formt,int frameCount)
+        {
+            this.formRef = formt;
+            this.totalFrameCount = frameCount;
+
             switch(preset)
             {
                 case "Audio Only":
@@ -33,7 +44,7 @@ namespace ffmpegATEI
 
         }
 
-        private static void AudioOnly(String inputFile,String outputDirectory)
+        private void AudioOnly(String inputFile,String outputDirectory)
         {
             //MessageBox.Show(inputFile+  "   "+outputDirectory);
             //enclose path names with " " so ffmpeg can handle spaces correctly
@@ -41,15 +52,16 @@ namespace ffmpegATEI
             doConvert(parameters);
         }
 
-        private static void VideoOnly(String inputFile, String outputDirectory)
+        private void VideoOnly(String inputFile, String outputDirectory)
         {
             //enclose path names with " " so ffmpeg can handle spaces correctly
             String parameters = "-i " + '"' + inputFile + '"' + " -c copy -an "+" "+'"'+outputDirectory+"\\test.mp4"+'"';
             doConvert(parameters);
         }
 
-        private static void doConvert(String parameters)
+        private void doConvert(String parameters)
         {
+            //int totalFrameCount = 6750000;
             //MessageBox.Show(inputFile);
             //MessageBox.Show(outputDirectory);
             Process myProcess = new Process();
@@ -71,9 +83,26 @@ namespace ffmpegATEI
                 while (!myProcess.StandardError.EndOfStream)
                 {
                     string line = myProcess.StandardError.ReadLine();
-                    Console.WriteLine(line);
-                }
+                    if (line.Contains("frame="))
+                    {
+                        //String currentFramestr = "";
+                        String currentFramestr = line.Substring(7, 5);
+                        int currentFrameInt = Int32.Parse(currentFramestr);
+                        //Console.WriteLine(line);
+                        //Console.WriteLine("current frame count: " + totalFrameCount);
+                        //Console.WriteLine(currentFramestr);
+                        //
+                        // formRef.updateMyPercentage(currentFramestr);
 
+                        //float ttt = (float) currentFrameInt / totalFrameCount;
+                        //Console.WriteLine(ttt);
+
+                        //formRef.backgroundWorker1.ReportProgress(Convert.ToInt32(ttt) * 10000);
+                        formRef.backgroundWorker1.ReportProgress(currentFrameInt);
+                    }
+                    //Console.WriteLine(line);
+                }
+                
                 //background thread needs to wait for ffmpeg to complete before updating UI elements!
                 myProcess.WaitForExit();
                 
