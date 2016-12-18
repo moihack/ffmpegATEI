@@ -32,6 +32,11 @@ namespace ffmpegATEI
                 case "Video Only":
                     VideoOnly(inputFile, outputDirectory);
                     break;
+
+                case "PSP":
+                    PSP(inputFile, outputDirectory);
+                    break;
+
                 default:
                     MessageBox.Show("Incorrect preset selected!");
                     break;
@@ -48,14 +53,23 @@ namespace ffmpegATEI
         {
             //MessageBox.Show(inputFile+  "   "+outputDirectory);
             //enclose path names with " " so ffmpeg can handle spaces correctly
-            String parameters = "-y -i " + '"' + inputFile + '"' + " " + '"' + outputDirectory + "\\test.mp3" + '"';
+            String parameters = "-y -i " + '"' + inputFile + '"' +  " -vn -acodec copy " + " " + '"' + outputDirectory + "\\AudioOnly.m4a" + '"';
             doConvert(parameters);
         }
 
         private void VideoOnly(String inputFile, String outputDirectory)
         {
             //enclose path names with " " so ffmpeg can handle spaces correctly
-            String parameters = "-i " + '"' + inputFile + '"' + " -c copy -an "+" "+'"'+outputDirectory+"\\test.mp4"+'"';
+            String parameters = "-y -i " + '"' + inputFile + '"' + " -vcodec copy -an " + " "+'"'+outputDirectory+"\\VideoOnly.mp4"+'"';
+            doConvert(parameters);
+        }
+
+        private void PSP(String inputFile, String outputDirectory)
+        {
+            //ffmpeg -i source_video.avi -b 300 -s 320x240 -vcodec xvid -ab 32 -ar 24000 -acodec aac final_video.mp4
+            //enclose path names with " " so ffmpeg can handle spaces correctly
+            String parameters = "-y -i " + '"' + inputFile + '"' + " -b:v 300k -s  320x240 -vcodec libxvid -b:a 32k -ar 24000 -acodec aac " + " " + '"' + outputDirectory + "\\PSP.mp4" + '"';
+            //MessageBox.Show(parameters);
             doConvert(parameters);
         }
 

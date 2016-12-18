@@ -130,7 +130,7 @@
             this.presetsComboBox.Items.AddRange(new object[] {
             "Audio Only",
             "Video Only",
-            "Custom"});
+            "PSP"});
             this.presetsComboBox.Location = new System.Drawing.Point(616, 207);
             this.presetsComboBox.Name = "presetsComboBox";
             this.presetsComboBox.Size = new System.Drawing.Size(75, 21);
