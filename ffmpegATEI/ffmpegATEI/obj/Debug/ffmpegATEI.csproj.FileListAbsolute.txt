@@ -6,3 +6,4 @@ C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\obj\Debug\ffmpegATEI.Properties.
 C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\obj\Debug\ffmpegATEI.csproj.GenerateResource.Cache
 C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\obj\Debug\ffmpegATEI.exe
 C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\obj\Debug\ffmpegATEI.pdb
+C:\Users\user1\ffmpegATEI\ffmpegATEI\ffmpegATEI\obj\Debug\ffmpegATEI.csprojResolveAssemblyReference.cache
