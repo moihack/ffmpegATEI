@@ -29,23 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.AudioCodecsLabel = new System.Windows.Forms.Label();
+            this.AudioBitrateLabel = new System.Windows.Forms.Label();
+            this.VideoCodecLabel = new System.Windows.Forms.Label();
+            this.VideoBitrateLabel = new System.Windows.Forms.Label();
+            this.VideoResLabel = new System.Windows.Forms.Label();
             this.convertButton = new System.Windows.Forms.Button();
             this.presetsLabel = new System.Windows.Forms.Label();
             this.presetsComboBox = new System.Windows.Forms.ComboBox();
             this.openFilesBtn = new System.Windows.Forms.Button();
-            this.cmdTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.editBtn = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBoxVideoCodecsCollection = new System.Windows.Forms.ComboBox();
+            this.comboBoxAudioCodecsCollection = new System.Windows.Forms.ComboBox();
+            this.comboBoxAudioBitrateCollection = new System.Windows.Forms.ComboBox();
+            this.comboBoxVideoBitratesCollection = new System.Windows.Forms.ComboBox();
+            this.comboBoxVideoResolutionCollection = new System.Windows.Forms.ComboBox();
             this.chooseFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.pathListBox = new System.Windows.Forms.ListBox();
             this.choosePathDialog = new System.Windows.Forms.FolderBrowserDialog();
@@ -61,54 +58,54 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // label1
+            // AudioCodecsLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 191);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Audio Codec";
+            this.AudioCodecsLabel.AutoSize = true;
+            this.AudioCodecsLabel.Location = new System.Drawing.Point(13, 237);
+            this.AudioCodecsLabel.Name = "AudioCodecsLabel";
+            this.AudioCodecsLabel.Size = new System.Drawing.Size(68, 13);
+            this.AudioCodecsLabel.TabIndex = 1;
+            this.AudioCodecsLabel.Text = "Audio Codec";
             // 
-            // label2
+            // AudioBitrateLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(80, 191);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Audio Bitrate";
+            this.AudioBitrateLabel.AutoSize = true;
+            this.AudioBitrateLabel.Location = new System.Drawing.Point(81, 237);
+            this.AudioBitrateLabel.Name = "AudioBitrateLabel";
+            this.AudioBitrateLabel.Size = new System.Drawing.Size(67, 13);
+            this.AudioBitrateLabel.TabIndex = 2;
+            this.AudioBitrateLabel.Text = "Audio Bitrate";
             // 
-            // label3
+            // VideoCodecLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(153, 191);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Video Codec";
+            this.VideoCodecLabel.AutoSize = true;
+            this.VideoCodecLabel.Location = new System.Drawing.Point(154, 237);
+            this.VideoCodecLabel.Name = "VideoCodecLabel";
+            this.VideoCodecLabel.Size = new System.Drawing.Size(68, 13);
+            this.VideoCodecLabel.TabIndex = 3;
+            this.VideoCodecLabel.Text = "Video Codec";
             // 
-            // label4
+            // VideoBitrateLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(221, 191);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Video Bitrate";
+            this.VideoBitrateLabel.AutoSize = true;
+            this.VideoBitrateLabel.Location = new System.Drawing.Point(222, 237);
+            this.VideoBitrateLabel.Name = "VideoBitrateLabel";
+            this.VideoBitrateLabel.Size = new System.Drawing.Size(67, 13);
+            this.VideoBitrateLabel.TabIndex = 4;
+            this.VideoBitrateLabel.Text = "Video Bitrate";
             // 
-            // label5
+            // VideoResLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(291, 191);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Video Resolution";
+            this.VideoResLabel.AutoSize = true;
+            this.VideoResLabel.Location = new System.Drawing.Point(292, 237);
+            this.VideoResLabel.Name = "VideoResLabel";
+            this.VideoResLabel.Size = new System.Drawing.Size(87, 13);
+            this.VideoResLabel.TabIndex = 5;
+            this.VideoResLabel.Text = "Video Resolution";
             // 
             // convertButton
             // 
-            this.convertButton.Location = new System.Drawing.Point(618, 272);
+            this.convertButton.Location = new System.Drawing.Point(617, 307);
             this.convertButton.Name = "convertButton";
             this.convertButton.Size = new System.Drawing.Size(75, 23);
             this.convertButton.TabIndex = 6;
@@ -119,7 +116,7 @@
             // presetsLabel
             // 
             this.presetsLabel.AutoSize = true;
-            this.presetsLabel.Location = new System.Drawing.Point(631, 191);
+            this.presetsLabel.Location = new System.Drawing.Point(630, 237);
             this.presetsLabel.Name = "presetsLabel";
             this.presetsLabel.Size = new System.Drawing.Size(42, 13);
             this.presetsLabel.TabIndex = 7;
@@ -131,8 +128,9 @@
             this.presetsComboBox.Items.AddRange(new object[] {
             "Audio Only",
             "Video Only",
-            "PSP"});
-            this.presetsComboBox.Location = new System.Drawing.Point(616, 207);
+            "PSP",
+            "Custom"});
+            this.presetsComboBox.Location = new System.Drawing.Point(617, 253);
             this.presetsComboBox.Name = "presetsComboBox";
             this.presetsComboBox.Size = new System.Drawing.Size(75, 21);
             this.presetsComboBox.TabIndex = 8;
@@ -148,72 +146,78 @@
             this.openFilesBtn.UseVisualStyleBackColor = true;
             this.openFilesBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // cmdTextBox
+            // comboBoxVideoCodecsCollection
             // 
-            this.cmdTextBox.Location = new System.Drawing.Point(13, 247);
-            this.cmdTextBox.Name = "cmdTextBox";
-            this.cmdTextBox.ReadOnly = true;
-            this.cmdTextBox.Size = new System.Drawing.Size(591, 20);
-            this.cmdTextBox.TabIndex = 13;
+            this.comboBoxVideoCodecsCollection.Enabled = false;
+            this.comboBoxVideoCodecsCollection.FormattingEnabled = true;
+            this.comboBoxVideoCodecsCollection.Items.AddRange(new object[] {
+            "h263",
+            "h264",
+            "libx264",
+            "mpeg2video",
+            "mpeg4",
+            "libxvid"});
+            this.comboBoxVideoCodecsCollection.Location = new System.Drawing.Point(154, 253);
+            this.comboBoxVideoCodecsCollection.Name = "comboBoxVideoCodecsCollection";
+            this.comboBoxVideoCodecsCollection.Size = new System.Drawing.Size(65, 21);
+            this.comboBoxVideoCodecsCollection.TabIndex = 16;
             // 
-            // label6
+            // comboBoxAudioCodecsCollection
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 231);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "command:";
+            this.comboBoxAudioCodecsCollection.Enabled = false;
+            this.comboBoxAudioCodecsCollection.FormattingEnabled = true;
+            this.comboBoxAudioCodecsCollection.Items.AddRange(new object[] {
+            "aac",
+            "flac",
+            "mp3",
+            "vorbis"});
+            this.comboBoxAudioCodecsCollection.Location = new System.Drawing.Point(14, 253);
+            this.comboBoxAudioCodecsCollection.Name = "comboBoxAudioCodecsCollection";
+            this.comboBoxAudioCodecsCollection.Size = new System.Drawing.Size(65, 21);
+            this.comboBoxAudioCodecsCollection.TabIndex = 17;
             // 
-            // editBtn
+            // comboBoxAudioBitrateCollection
             // 
-            this.editBtn.Location = new System.Drawing.Point(618, 244);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(75, 23);
-            this.editBtn.TabIndex = 15;
-            this.editBtn.Text = "Edit";
-            this.editBtn.UseVisualStyleBackColor = true;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
+            this.comboBoxAudioBitrateCollection.Enabled = false;
+            this.comboBoxAudioBitrateCollection.FormattingEnabled = true;
+            this.comboBoxAudioBitrateCollection.Items.AddRange(new object[] {
+            "64k",
+            "128k",
+            "256k",
+            "320k"});
+            this.comboBoxAudioBitrateCollection.Location = new System.Drawing.Point(84, 253);
+            this.comboBoxAudioBitrateCollection.Name = "comboBoxAudioBitrateCollection";
+            this.comboBoxAudioBitrateCollection.Size = new System.Drawing.Size(64, 21);
+            this.comboBoxAudioBitrateCollection.TabIndex = 18;
             // 
-            // comboBox1
+            // comboBoxVideoBitratesCollection
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(153, 207);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(65, 21);
-            this.comboBox1.TabIndex = 16;
+            this.comboBoxVideoBitratesCollection.Enabled = false;
+            this.comboBoxVideoBitratesCollection.FormattingEnabled = true;
+            this.comboBoxVideoBitratesCollection.Items.AddRange(new object[] {
+            "300k",
+            "600k",
+            "800k",
+            "1000k",
+            "1200k"});
+            this.comboBoxVideoBitratesCollection.Location = new System.Drawing.Point(225, 253);
+            this.comboBoxVideoBitratesCollection.Name = "comboBoxVideoBitratesCollection";
+            this.comboBoxVideoBitratesCollection.Size = new System.Drawing.Size(64, 21);
+            this.comboBoxVideoBitratesCollection.TabIndex = 19;
             // 
-            // comboBox2
+            // comboBoxVideoResolutionCollection
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(13, 207);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(65, 21);
-            this.comboBox2.TabIndex = 17;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(83, 207);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(64, 21);
-            this.comboBox3.TabIndex = 18;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(224, 207);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(64, 21);
-            this.comboBox4.TabIndex = 19;
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(294, 207);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(84, 21);
-            this.comboBox5.TabIndex = 20;
+            this.comboBoxVideoResolutionCollection.Enabled = false;
+            this.comboBoxVideoResolutionCollection.FormattingEnabled = true;
+            this.comboBoxVideoResolutionCollection.Items.AddRange(new object[] {
+            "320x240",
+            "640x480",
+            "1280x720",
+            "1920x1080"});
+            this.comboBoxVideoResolutionCollection.Location = new System.Drawing.Point(295, 253);
+            this.comboBoxVideoResolutionCollection.Name = "comboBoxVideoResolutionCollection";
+            this.comboBoxVideoResolutionCollection.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxVideoResolutionCollection.TabIndex = 20;
             // 
             // chooseFileDialog
             // 
@@ -224,13 +228,13 @@
             this.pathListBox.FormattingEnabled = true;
             this.pathListBox.Location = new System.Drawing.Point(12, 10);
             this.pathListBox.Name = "pathListBox";
-            this.pathListBox.Size = new System.Drawing.Size(590, 43);
+            this.pathListBox.Size = new System.Drawing.Size(590, 69);
             this.pathListBox.TabIndex = 21;
             this.pathListBox.SelectedIndexChanged += new System.EventHandler(this.pathListBox_SelectedIndexChanged);
             // 
             // choosePathButton
             // 
-            this.choosePathButton.Location = new System.Drawing.Point(617, 56);
+            this.choosePathButton.Location = new System.Drawing.Point(618, 83);
             this.choosePathButton.Name = "choosePathButton";
             this.choosePathButton.Size = new System.Drawing.Size(75, 23);
             this.choosePathButton.TabIndex = 23;
@@ -240,7 +244,7 @@
             // 
             // sevePathTextbox
             // 
-            this.sevePathTextbox.Location = new System.Drawing.Point(12, 59);
+            this.sevePathTextbox.Location = new System.Drawing.Point(12, 85);
             this.sevePathTextbox.Name = "sevePathTextbox";
             this.sevePathTextbox.ReadOnly = true;
             this.sevePathTextbox.Size = new System.Drawing.Size(590, 20);
@@ -250,7 +254,7 @@
             // progressLabel
             // 
             this.progressLabel.AutoSize = true;
-            this.progressLabel.Location = new System.Drawing.Point(182, 278);
+            this.progressLabel.Location = new System.Drawing.Point(221, 317);
             this.progressLabel.Name = "progressLabel";
             this.progressLabel.Size = new System.Drawing.Size(275, 13);
             this.progressLabel.TabIndex = 26;
@@ -266,16 +270,16 @@
             // 
             // fileInfoTxtBox
             // 
-            this.fileInfoTxtBox.Location = new System.Drawing.Point(12, 98);
+            this.fileInfoTxtBox.Location = new System.Drawing.Point(12, 124);
             this.fileInfoTxtBox.Name = "fileInfoTxtBox";
-            this.fileInfoTxtBox.Size = new System.Drawing.Size(592, 80);
+            this.fileInfoTxtBox.Size = new System.Drawing.Size(592, 99);
             this.fileInfoTxtBox.TabIndex = 27;
             this.fileInfoTxtBox.Text = "";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(272, 82);
+            this.label7.Location = new System.Drawing.Point(272, 108);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 13);
             this.label7.TabIndex = 28;
@@ -289,16 +293,16 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 309);
+            this.progressBar1.Location = new System.Drawing.Point(12, 333);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(681, 23);
+            this.progressBar1.Size = new System.Drawing.Size(680, 23);
             this.progressBar1.TabIndex = 30;
             // 
             // ffmpegTEI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 342);
+            this.ClientSize = new System.Drawing.Size(704, 362);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.fileInfoTxtBox);
@@ -306,24 +310,22 @@
             this.Controls.Add(this.sevePathTextbox);
             this.Controls.Add(this.choosePathButton);
             this.Controls.Add(this.pathListBox);
-            this.Controls.Add(this.comboBox5);
-            this.Controls.Add(this.comboBox4);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.editBtn);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.cmdTextBox);
+            this.Controls.Add(this.comboBoxVideoResolutionCollection);
+            this.Controls.Add(this.comboBoxVideoBitratesCollection);
+            this.Controls.Add(this.comboBoxAudioBitrateCollection);
+            this.Controls.Add(this.comboBoxAudioCodecsCollection);
+            this.Controls.Add(this.comboBoxVideoCodecsCollection);
             this.Controls.Add(this.openFilesBtn);
             this.Controls.Add(this.presetsComboBox);
             this.Controls.Add(this.presetsLabel);
             this.Controls.Add(this.convertButton);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.VideoResLabel);
+            this.Controls.Add(this.VideoBitrateLabel);
+            this.Controls.Add(this.VideoCodecLabel);
+            this.Controls.Add(this.AudioBitrateLabel);
+            this.Controls.Add(this.AudioCodecsLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ffmpegTEI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ffmpegTEI";
@@ -334,23 +336,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label AudioCodecsLabel;
+        private System.Windows.Forms.Label AudioBitrateLabel;
+        private System.Windows.Forms.Label VideoCodecLabel;
+        private System.Windows.Forms.Label VideoBitrateLabel;
+        private System.Windows.Forms.Label VideoResLabel;
         private System.Windows.Forms.Button convertButton;
         private System.Windows.Forms.Label presetsLabel;
         private System.Windows.Forms.ComboBox presetsComboBox;
         private System.Windows.Forms.Button openFilesBtn;
-        private System.Windows.Forms.TextBox cmdTextBox;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button editBtn;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBoxVideoCodecsCollection;
+        private System.Windows.Forms.ComboBox comboBoxAudioCodecsCollection;
+        private System.Windows.Forms.ComboBox comboBoxAudioBitrateCollection;
+        private System.Windows.Forms.ComboBox comboBoxVideoBitratesCollection;
+        private System.Windows.Forms.ComboBox comboBoxVideoResolutionCollection;
         private System.Windows.Forms.OpenFileDialog chooseFileDialog;
         private System.Windows.Forms.ListBox pathListBox;
         private System.Windows.Forms.FolderBrowserDialog choosePathDialog;

@@ -22,16 +22,16 @@ namespace ffmpegATEI
         public ffmpegTEI()
         {
             InitializeComponent();
-            toolTip1.AutoPopDelay = 5000;
+            toolTip1.AutoPopDelay = 3000;
             toolTip1.InitialDelay = 1000;
-            toolTip1.ReshowDelay = 500;
+            toolTip1.ReshowDelay = 250;
             toolTip1.ShowAlways = true;
             
-            toolTip1.SetToolTip(this.label1, "Compresses and decompresses digital audio data according to a given audio file or streaming media audio coding format");
-            toolTip1.SetToolTip(this.label2, "The lower the bitrate, the more the file has been compressed and the more you compress a file, the more of the original data is lost, and so the worse the playback sound quality will be.");
-            toolTip1.SetToolTip(this.label3, "It converts raw (uncompressed) digital video to a compressed format or vice versa.");
-            toolTip1.SetToolTip(this.label4, "The bit rate is the amount of data dedicated to a second of video. So, the higher the bit rate, the better the video quality");
-            toolTip1.SetToolTip(this.label5, "In short, the number represents the number of horizontal lines the video has from top to bottom");
+            toolTip1.SetToolTip(this.AudioCodecsLabel, "Compresses and decompresses digital audio data according to a given audio file or streaming media audio coding format");
+            toolTip1.SetToolTip(this.AudioBitrateLabel, "The lower the bitrate, the more the file has been compressed and the more you compress a file, the more of the original data is lost, and so the worse the playback sound quality will be.");
+            toolTip1.SetToolTip(this.VideoCodecLabel, "It converts raw (uncompressed) digital video to a compressed format or vice versa.");
+            toolTip1.SetToolTip(this.VideoBitrateLabel, "The bit rate is the amount of data dedicated to a second of video. So, the higher the bit rate, the better the video quality");
+            toolTip1.SetToolTip(this.VideoResLabel, "In short, the number represents the number of horizontal lines the video has from top to bottom");
         }
 
         private void ffmpegTEI_Load(object sender, EventArgs e)
@@ -39,14 +39,35 @@ namespace ffmpegATEI
            ff = new ffPresets(this);
         }
 
-        private void editBtn_Click(object sender, EventArgs e)
-        {
-            cmdTextBox.ReadOnly = false;
-        }
 
         private void presetsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
+            //MessageBox.Show(presetsComboBox.SelectedItem.ToString());
+            if (presetsComboBox.SelectedItem.ToString().Contains("Custom"))
+            {
+                var comboBoxes = this.Controls
+                  .OfType<ComboBox>()
+                  .Where(x => x.Name.StartsWith("comboBox"));
+
+                foreach (var cmbBox in comboBoxes)
+                {
+                    cmbBox.Enabled = true;
+                    cmbBox.SelectedIndex = 0;
+                }
+
+            }
+            else
+            {
+                var comboBoxes = this.Controls
+                  .OfType<ComboBox>()
+                  .Where(x => x.Name.StartsWith("comboBox"));
+
+                foreach (var cmbBox in comboBoxes)
+                {
+                    cmbBox.Enabled = false;
+                }
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -207,6 +228,8 @@ namespace ffmpegATEI
 
            // backgroundWorker1.ReportProgress();
         }
+
+   
     }
 }
 
