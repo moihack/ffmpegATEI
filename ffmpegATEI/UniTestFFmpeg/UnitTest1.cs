@@ -15,13 +15,14 @@ namespace UniTestFFmpeg
         string output = "C:\\Users\\user1\\Desktop\\testin";
         string expectedOutput = "";
         string preset = "";
+        customPreset csgo;
         bool flug = false;
         [TestMethod]
         public void presetVideoOnly()
         {
             bool closed = false;
             expectedOutput = "C:\\Users\\user1\\Desktop\\testin\\VideoOnly.mp4";
-            testffPreset.detectPreset(input, output, "Video Only", null, 100);
+            testffPreset.detectPreset(input, output, "Video Only", null, 100,csgo);
             Thread.Sleep(5000);//we need this dead duration to ensure that ffmpeg 
             //have already closed its streams.
             while (!closed)
@@ -50,7 +51,7 @@ namespace UniTestFFmpeg
         {
             bool closed = false;
             expectedOutput = "C:\\Users\\user1\\Desktop\\testin\\PSP.mp4";
-            testffPreset.detectPreset(input, output, "PSP", null, 100);
+            testffPreset.detectPreset(input, output, "PSP", null, 100,csgo);
             foreach (Process proc in Process.GetProcesses())
             {
                 Console.WriteLine(proc.ProcessName);
@@ -85,7 +86,7 @@ namespace UniTestFFmpeg
         {
             bool closed = false;
             expectedOutput = "C:\\Users\\user1\\Desktop\\testin\\AudioOnly.m4a";
-            testffPreset.detectPreset(input, output, "Audio Only", null, 100);
+            testffPreset.detectPreset(input, output, "Audio Only", null, 100,csgo);
             while (!closed)
             {
                 try

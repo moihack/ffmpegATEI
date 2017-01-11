@@ -18,7 +18,7 @@ namespace ffmpegATEI
             formRef = formex;
         }
 
-        public void detectPreset(String inputFile, String outputDirectory,String preset, ffmpegTEI formt,int frameCount)
+        public void detectPreset(String inputFile, String outputDirectory,String preset, ffmpegTEI formt,int frameCount,customPreset testPreset)
         {
             this.formRef = formt;
             this.totalFrameCount = frameCount;
@@ -35,6 +35,10 @@ namespace ffmpegATEI
 
                 case "PSP":
                     PSP(inputFile, outputDirectory);
+                    break;
+
+                case "Custom":
+                    customPreset(inputFile, outputDirectory,testPreset);
                     break;
 
                 default:
@@ -70,6 +74,15 @@ namespace ffmpegATEI
             //enclose path names with " " so ffmpeg can handle spaces correctly
             String parameters = "-y -i " + '"' + inputFile + '"' + " -b:v 300k -s  320x240 -vcodec libxvid -b:a 32k -ar 24000 -acodec aac " + " " + '"' + outputDirectory + "\\PSP.mp4" + '"';
             //MessageBox.Show(parameters);
+            Console.WriteLine(parameters);
+            doConvert(parameters);
+        }
+
+        private void customPreset(String inputFile, String outputDirectory, customPreset cspre)
+        {
+            //MessageBox.Show(cspre.abitrate);
+            String parameters = "-y -i " + '"' + inputFile + '"' + " -b:v " + cspre.vbitrate + " -s " + cspre.resolution + " -vcodec " + cspre.vcodec + " -acodec " + cspre.acodec + " " + '"' + outputDirectory + "\\P2.mp4" + '"';
+            Console.WriteLine(parameters);
             doConvert(parameters);
         }
 

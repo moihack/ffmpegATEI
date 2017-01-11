@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.IO;
 
 namespace ffmpegATEI
 {
     public partial class ffmpegTEI : Form
     {
         ffPresets ff;
-
+        public customPreset customPre;
         string inputItem = null;
         string outputDir = null;
         string preset = null;        
@@ -36,6 +37,7 @@ namespace ffmpegATEI
 
         private void ffmpegTEI_Load(object sender, EventArgs e)
         {
+           //customPre = new customPreset();
            ff = new ffPresets(this);
         }
 
@@ -45,6 +47,8 @@ namespace ffmpegATEI
             //MessageBox.Show(presetsComboBox.SelectedItem.ToString());
             if (presetsComboBox.SelectedItem.ToString().Contains("Custom"))
             {
+                savePresetBtn.Enabled = true;
+
                 var comboBoxes = this.Controls
                   .OfType<ComboBox>()
                   .Where(x => x.Name.StartsWith("comboBox"));
@@ -58,6 +62,8 @@ namespace ffmpegATEI
             }
             else
             {
+                savePresetBtn.Enabled = false;
+
                 var comboBoxes = this.Controls
                   .OfType<ComboBox>()
                   .Where(x => x.Name.StartsWith("comboBox"));
@@ -149,6 +155,8 @@ namespace ffmpegATEI
                 }
                 preset = presetsComboBox.SelectedItem.ToString();
                 progressLabel.Text = "ffmpeg running in the background! Do NOT close this window";
+                presetCreator();
+                //MessageBox.Show(customPre.abitrate + " " + customPre.vcodec);
                 backgroundWorker1.RunWorkerAsync();
                 //startConvert();
             }
@@ -184,7 +192,8 @@ namespace ffmpegATEI
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            ff.detectPreset(inputItem, outputDir, preset,this,progressBar1.Maximum );
+            //MessageBox.Show(customPre.abitrate + " " + customPre.vcodec);
+            ff.detectPreset(inputItem, outputDir, preset,this,progressBar1.Maximum,customPre);
             //ff.detectPreset(inputItem, outputDir, preset);
             //ff.detectPreset(inputItem, outputDir, preset);      
         }
@@ -229,7 +238,78 @@ namespace ffmpegATEI
            // backgroundWorker1.ReportProgress();
         }
 
-   
+        private void savePresetBtn_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("geia");
+            //Application.StartupPath + "\\bin\\ffmpeg.exe";
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Preset|*.preset";
+            saveFileDialog1.Title = "Save a Preset file";
+            saveFileDialog1.FileName = "customPreset.preset";
+            //saveFileDialog1.InitialDirectory = Application.StartupPath + "\\presets\\";
+            saveFileDialog1.ShowDialog();
+            //MessageBox.Show(saveFileDialog1.FileName);
+
+            // Create a file to write to.
+            //string createText = "Hello and Welcome" + Environment.NewLine;
+            //string path = Application.StartupPath + "\\presets\\test.txt";
+           // File.WriteAllText(saveFileDialog1.FileName, presetCreator());
+
+            // Open the file to read from. 
+            //string readText = File.ReadAllText(path);
+           // MessageBox.Show(readText);
+        }
+
+        private void presetCreator()
+        {
+            // string presetParameters = null;
+            customPre = new customPreset();
+            var comboBoxes = this.Controls
+                 .OfType<ComboBox>()
+                 .Where(x => x.Name.StartsWith("comboBox"));
+
+            foreach (var cmbBox in comboBoxes)
+            {
+                if (cmbBox.Name.Equals("comboBoxAudioCodecsCollection"))
+                {
+                     customPre.acodec = comboBoxAudioCodecsCollection.SelectedItem.ToString();
+                   // MessageBox.Show(cmbBox.Name + "t1");
+                }
+
+                if (cmbBox.Name.Equals("comboBoxAudioBitrateCollection"))
+                {
+                    customPre.abitrate = comboBoxAudioBitrateCollection.SelectedItem.ToString();
+                    //Console.WriteLine("mphka");
+                    // MessageBox.Show("geia1");
+                    //MessageBox.Show(cmbBox.Name + "t2");
+                }
+
+                if (cmbBox.Name.Equals("comboBoxVideoCodecsCollection"))
+                {
+                    customPre.vcodec = comboBoxVideoCodecsCollection.SelectedItem.ToString();
+                    // MessageBox.Show("geia2");
+                    //MessageBox.Show(cmbBox.Name + "t3");
+                }
+
+                if (cmbBox.Name.Equals("comboBoxVideoBitratesCollection"))
+                {
+                    customPre.vbitrate = comboBoxVideoBitratesCollection.SelectedItem.ToString();
+                    //MessageBox.Show("gamw" + comboBoxAudioCodecsCollection.SelectedItem.ToString());
+                }
+
+                if (cmbBox.Name.Equals("comboBoxVideoResolutionCollection"))
+                {
+                    customPre.resolution = comboBoxVideoResolutionCollection.SelectedItem.ToString();
+                  //  MessageBox.Show("geia4");
+                }
+
+                //MessageBox.Show(customPre.abitrate + " " + customPre.vcodec);
+            }
+
+            //String parameters = "-y -i " + '"' + inputFile + '"' +  " -vn -acodec copy " + " " + '"' + outputDirectory + "\\AudioOnly.m4a" + '"';
+           // return presetParameters;
+        }
+
     }
 }
 

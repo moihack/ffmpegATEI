@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="customPreset.cs" />
     <Compile Include="ffmpegTEI.cs">
       <SubType>Form</SubType>
     </Compile>

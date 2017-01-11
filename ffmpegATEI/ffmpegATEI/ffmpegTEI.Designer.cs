@@ -56,6 +56,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.savePresetBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AudioCodecsLabel
@@ -116,7 +117,7 @@
             // presetsLabel
             // 
             this.presetsLabel.AutoSize = true;
-            this.presetsLabel.Location = new System.Drawing.Point(630, 237);
+            this.presetsLabel.Location = new System.Drawing.Point(540, 237);
             this.presetsLabel.Name = "presetsLabel";
             this.presetsLabel.Size = new System.Drawing.Size(42, 13);
             this.presetsLabel.TabIndex = 7;
@@ -130,7 +131,7 @@
             "Video Only",
             "PSP",
             "Custom"});
-            this.presetsComboBox.Location = new System.Drawing.Point(617, 253);
+            this.presetsComboBox.Location = new System.Drawing.Point(527, 253);
             this.presetsComboBox.Name = "presetsComboBox";
             this.presetsComboBox.Size = new System.Drawing.Size(75, 21);
             this.presetsComboBox.TabIndex = 8;
@@ -151,7 +152,6 @@
             this.comboBoxVideoCodecsCollection.Enabled = false;
             this.comboBoxVideoCodecsCollection.FormattingEnabled = true;
             this.comboBoxVideoCodecsCollection.Items.AddRange(new object[] {
-            "h263",
             "h264",
             "libx264",
             "mpeg2video",
@@ -168,9 +168,8 @@
             this.comboBoxAudioCodecsCollection.FormattingEnabled = true;
             this.comboBoxAudioCodecsCollection.Items.AddRange(new object[] {
             "aac",
-            "flac",
             "mp3",
-            "vorbis"});
+            "libvorbis"});
             this.comboBoxAudioCodecsCollection.Location = new System.Drawing.Point(14, 253);
             this.comboBoxAudioCodecsCollection.Name = "comboBoxAudioCodecsCollection";
             this.comboBoxAudioCodecsCollection.Size = new System.Drawing.Size(65, 21);
@@ -181,11 +180,10 @@
             this.comboBoxAudioBitrateCollection.Enabled = false;
             this.comboBoxAudioBitrateCollection.FormattingEnabled = true;
             this.comboBoxAudioBitrateCollection.Items.AddRange(new object[] {
-            "64k",
             "128k",
             "256k",
             "320k"});
-            this.comboBoxAudioBitrateCollection.Location = new System.Drawing.Point(84, 253);
+            this.comboBoxAudioBitrateCollection.Location = new System.Drawing.Point(85, 253);
             this.comboBoxAudioBitrateCollection.Name = "comboBoxAudioBitrateCollection";
             this.comboBoxAudioBitrateCollection.Size = new System.Drawing.Size(64, 21);
             this.comboBoxAudioBitrateCollection.TabIndex = 18;
@@ -298,11 +296,23 @@
             this.progressBar1.Size = new System.Drawing.Size(680, 23);
             this.progressBar1.TabIndex = 30;
             // 
+            // savePresetBtn
+            // 
+            this.savePresetBtn.Enabled = false;
+            this.savePresetBtn.Location = new System.Drawing.Point(617, 253);
+            this.savePresetBtn.Name = "savePresetBtn";
+            this.savePresetBtn.Size = new System.Drawing.Size(75, 23);
+            this.savePresetBtn.TabIndex = 31;
+            this.savePresetBtn.Text = "Save Preset";
+            this.savePresetBtn.UseVisualStyleBackColor = true;
+            this.savePresetBtn.Click += new System.EventHandler(this.savePresetBtn_Click);
+            // 
             // ffmpegTEI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 362);
+            this.Controls.Add(this.savePresetBtn);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.fileInfoTxtBox);
@@ -363,6 +373,7 @@
         public System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button savePresetBtn;
     }
 }
 
