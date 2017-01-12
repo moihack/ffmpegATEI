@@ -56,7 +56,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.savePresetBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AudioCodecsLabel
@@ -283,12 +282,6 @@
             this.label7.TabIndex = 28;
             this.label7.Text = "FileInfo";
             // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(12, 333);
@@ -296,23 +289,11 @@
             this.progressBar1.Size = new System.Drawing.Size(680, 23);
             this.progressBar1.TabIndex = 30;
             // 
-            // savePresetBtn
-            // 
-            this.savePresetBtn.Enabled = false;
-            this.savePresetBtn.Location = new System.Drawing.Point(617, 253);
-            this.savePresetBtn.Name = "savePresetBtn";
-            this.savePresetBtn.Size = new System.Drawing.Size(75, 23);
-            this.savePresetBtn.TabIndex = 31;
-            this.savePresetBtn.Text = "Save Preset";
-            this.savePresetBtn.UseVisualStyleBackColor = true;
-            this.savePresetBtn.Click += new System.EventHandler(this.savePresetBtn_Click);
-            // 
             // ffmpegTEI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 362);
-            this.Controls.Add(this.savePresetBtn);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.fileInfoTxtBox);
@@ -373,7 +354,6 @@
         public System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button savePresetBtn;
     }
 }
 

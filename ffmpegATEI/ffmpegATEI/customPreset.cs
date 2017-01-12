@@ -27,6 +27,5 @@ namespace ffmpegATEI
             vbitrate = VBITRATE;
             resolution = RESOLUTION;
         }
-
     }
 }

@@ -55,7 +55,6 @@ namespace ffmpegATEI
 
         private void AudioOnly(String inputFile,String outputDirectory)
         {
-            //MessageBox.Show(inputFile+  "   "+outputDirectory);
             //enclose path names with " " so ffmpeg can handle spaces correctly
             String parameters = "-y -i " + '"' + inputFile + '"' +  " -vn -acodec copy " + " " + '"' + outputDirectory + "\\AudioOnly.m4a" + '"';
             doConvert(parameters);
@@ -71,16 +70,15 @@ namespace ffmpegATEI
         private void PSP(String inputFile, String outputDirectory)
         {
             //ffmpeg -i source_video.avi -b 300 -s 320x240 -vcodec xvid -ab 32 -ar 24000 -acodec aac final_video.mp4
+
             //enclose path names with " " so ffmpeg can handle spaces correctly
             String parameters = "-y -i " + '"' + inputFile + '"' + " -b:v 300k -s  320x240 -vcodec libxvid -b:a 32k -ar 24000 -acodec aac " + " " + '"' + outputDirectory + "\\PSP.mp4" + '"';
-            //MessageBox.Show(parameters);
             Console.WriteLine(parameters);
             doConvert(parameters);
         }
 
         private void customPreset(String inputFile, String outputDirectory, customPreset cspre)
         {
-            //MessageBox.Show(cspre.abitrate);
             String parameters = "-y -i " + '"' + inputFile + '"' + " -b:v " + cspre.vbitrate + " -s " + cspre.resolution + " -vcodec " + cspre.vcodec + " -acodec " + cspre.acodec + " " + '"' + outputDirectory + "\\P2.mp4" + '"';
             Console.WriteLine(parameters);
             doConvert(parameters);
@@ -88,19 +86,13 @@ namespace ffmpegATEI
 
         private void doConvert(String parameters)
         {
-            //int totalFrameCount = 6750000;
-            //MessageBox.Show(inputFile);
-            //MessageBox.Show(outputDirectory);
             Process myProcess = new Process();
             string cmd = parameters;
-            //MessageBox.Show(cmd);
+
             try
             {
                 myProcess.StartInfo.UseShellExecute = false;
                 myProcess.StartInfo.FileName = Application.StartupPath + "\\bin\\ffmpeg.exe";
-                //MessageBox.Show(cmd);
-                //MessageBox.Show(myProcess.StartInfo.FileName);
-                //myProcess.StartInfo.CreateNoWindow = false;
                 myProcess.StartInfo.Arguments = cmd;
                 myProcess.StartInfo.CreateNoWindow = true;
                 myProcess.StartInfo.RedirectStandardError = true;
@@ -112,19 +104,9 @@ namespace ffmpegATEI
                     string line = myProcess.StandardError.ReadLine();
                     if (line.Contains("frame="))
                     {
-                        //String currentFramestr = "";
                         String currentFramestr = line.Substring(7, 5);
                         int currentFrameInt = Int32.Parse(currentFramestr);
-                        //Console.WriteLine(line);
-                        //Console.WriteLine("current frame count: " + totalFrameCount);
-                        //Console.WriteLine(currentFramestr);
-                        //
-                        // formRef.updateMyPercentage(currentFramestr);
 
-                        //float ttt = (float) currentFrameInt / totalFrameCount;
-                        //Console.WriteLine(ttt);
-
-                        //formRef.backgroundWorker1.ReportProgress(Convert.ToInt32(ttt) * 10000);
                         formRef.backgroundWorker1.ReportProgress(currentFrameInt);
                     }
                     //Console.WriteLine(line);
@@ -132,14 +114,11 @@ namespace ffmpegATEI
                 
                 //background thread needs to wait for ffmpeg to complete before updating UI elements!
                 myProcess.WaitForExit();
-                
-
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
         }
-
     }
 }
