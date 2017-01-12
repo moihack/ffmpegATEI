@@ -10,13 +10,19 @@ namespace ffmpegATEI
 {
     class fileInfo
     {
-        public static String mediaInfo(String path)
+        public String frameNumber, info;
+
+        public fileInfo()
         {
 
-            String info = null;
+        }
+
+        public fileInfo(String path)
+        {
+            //String info = null;
 
             Boolean hasAudio = false;
-            Boolean hasVideo = false;
+            Boolean hasVideo = false;         
 
             /* The wrapper mediaInfo library does not correctly determine audio bitrate (always returns 0).
                To solve this, we first check if there is a video stream. 
@@ -42,6 +48,7 @@ namespace ffmpegATEI
                 if (hasVideo)
                 {
                     realAudioBitrate = mediaFile.General.Bitrate - mediaFile.Video[0].Bitrate;
+                    frameNumber = (mediaFile.FrameCount / 1000).ToString();
                 }
                 else
                 {
@@ -88,7 +95,7 @@ namespace ffmpegATEI
 
             //return test.ToString();
             //return mediaFile.FrameCount.ToString();
-            return (mediaFile.FrameCount / 1000).ToString();
+            //return (mediaFile.FrameCount / 1000).ToString();
             //return info;
         }
        

@@ -191,8 +191,11 @@ namespace ffmpegATEI
         private void pathListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             fileInfoTxtBox.Text = "";
-            fileInfoTxtBox.Text = fileInfo.mediaInfo(pathListBox.SelectedItem.ToString());
-            progressBar1.Maximum = Int32.Parse(fileInfoTxtBox.Text) + 1000;
+            fileInfo fit; //= new fileInfo();
+            //fileInfoTxtBox.Text = fileInfo.mediaInfo(pathListBox.SelectedItem.ToString());
+            fit = new fileInfo(pathListBox.SelectedItem.ToString());
+            fileInfoTxtBox.Text = fit.info;
+            progressBar1.Maximum = Int32.Parse(fit.frameNumber) + 1000;
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)

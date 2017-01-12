@@ -269,7 +269,7 @@
             // 
             this.fileInfoTxtBox.Location = new System.Drawing.Point(12, 124);
             this.fileInfoTxtBox.Name = "fileInfoTxtBox";
-            this.fileInfoTxtBox.Size = new System.Drawing.Size(592, 99);
+            this.fileInfoTxtBox.Size = new System.Drawing.Size(590, 110);
             this.fileInfoTxtBox.TabIndex = 27;
             this.fileInfoTxtBox.Text = "";
             // 
